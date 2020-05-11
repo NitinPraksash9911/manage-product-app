@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Manage Product</string>
+
+    <string name="sp">SP: %s\u20B9</string>
+    <string name="rp">RP: %s\u20B9</string>
+
+    <!--    <string name="strike_text">1. <strike>StrikeThrough</strike> Using strike</string>-->
+
+    <string name="proceed">Now you can proceed</string>
+    <string name="grant_premission">Please grant the permission in order to use this app</string>
+
+    <!--for transition name-->
+    <string name="transition_avatar">avatar %s</string>
+    <string name="transition_fab">floating button</string>
+    <string name="view_more"><u>View More</u></string>
+
+</resources>

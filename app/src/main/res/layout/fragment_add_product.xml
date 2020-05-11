@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="in.nitin.roomdatabasesample.viewmodel.AddOrRemoveProductViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@color/colorYellow"
+            app:cardElevation="@dimen/dimen_8dp"
+            app:layout_collapseMode="pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/closeBtn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="@dimen/dimen_35dp"
+                    android:layout_height="@dimen/dimen_35dp"
+                    android:layout_marginStart="@dimen/dimen_12dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:gravity="center"
+                    android:insetLeft="@dimen/dimen_0dp"
+                    android:insetTop="@dimen/dimen_0dp"
+                    android:insetRight="@dimen/dimen_0dp"
+                    android:insetBottom="@dimen/dimen_0dp"
+                    android:padding="@dimen/dimen_8dp"
+                    app:icon="@drawable/ic_close_black_24dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dimen_0dp"
+                    app:iconTint="@android:color/black" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveBtn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="@dimen/dimen_35dp"
+                    android:layout_height="@dimen/dimen_35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dimen_12dp"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:gravity="center"
+                    android:insetLeft="@dimen/dimen_0dp"
+                    android:insetTop="@dimen/dimen_0dp"
+                    android:insetRight="@dimen/dimen_0dp"
+                    android:insetBottom="@dimen/dimen_0dp"
+                    android:onClick="@{()->viewModel.addProduct()}"
+                    android:padding="@dimen/dimen_8dp"
+                    app:icon="@drawable/ic_check_black_24dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dimen_0dp"
+                    app:iconTint="@android:color/black" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8dp"
+                tools:context=".ui.fragment.AddProductFragment">
+
+                <ImageView
+                    android:id="@+id/productImage"
+                    android:layout_width="@dimen/dimen_150dp"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_marginTop="@dimen/dimen_60dp"
+                    android:padding="@dimen/dimen_4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_insert_photo_black_24dp"
+                    app:imageUrl="@{viewModel.imageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addProductImage"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:background="@color/colorYellow"
+                    android:backgroundTint="@color/colorYellow"
+                    android:gravity="center"
+                    android:insetLeft="@dimen/dimen_0dp"
+                    android:insetTop="@dimen/dimen_0dp"
+                    android:insetRight="@dimen/dimen_0dp"
+                    android:insetBottom="@dimen/dimen_0dp"
+                    app:icon="@drawable/ic_add_black_24dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dimen_0dp"
+                    app:iconTint="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/productImage"
+                    app:layout_constraintEnd_toEndOf="@id/productImage"
+                    app:layout_constraintStart_toStartOf="@id/productImage"
+                    app:layout_constraintTop_toTopOf="@id/productImage"
+
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/productName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productImage"
+                    app:setError="@{viewModel.prodNameError}">
+
+                    <EditText
+                        android:id="@+id/productNameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Product Name*"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@={viewModel.prodName}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/productDesc"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productName"
+                    app:setError="@{viewModel.prodDescError}">
+
+                    <EditText
+                        android:id="@+id/productDescEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Product Desc*"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@={viewModel.prodDesc}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/salePrice"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productDesc"
+                    app:setError="@{viewModel.prodSpError}">
+
+                    <EditText
+                        android:id="@+id/salePricecEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Sale Price*"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:text="@={viewModel.prodSp}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/regularPrice"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/salePrice"
+                    app:setError="@{viewModel.prodRpError}">
+
+                    <EditText
+                        android:id="@+id/regularPriceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Regular Price*"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:text="@={viewModel.prodRp}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--Product color view-->
+                <TextView
+                    android:id="@+id/colorTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_4dp"
+                    android:text="Product Colors"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/regularPrice" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addColorBtn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:background="@color/colorYellow"
+                    android:backgroundTint="@color/colorYellow"
+                    android:insetLeft="@dimen/dimen_0dp"
+                    android:insetTop="@dimen/dimen_0dp"
+                    android:insetRight="@dimen/dimen_0dp"
+                    android:insetBottom="@dimen/dimen_0dp"
+                    app:icon="@drawable/ic_add_black_24dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dimen_0dp"
+                    app:iconTint="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/colorTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/colorTextView" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/colorRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/colorTextView"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/product_color_layout" />
+
+                <!--color view end-->
+
+                <!--Product store views-->
+                <TextView
+                    android:id="@+id/storeTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_4dp"
+                    android:text="Store Address"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/colorRV" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addStoreBtn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_24dp"
+                    android:background="@color/colorYellow"
+                    android:backgroundTint="@color/colorYellow"
+                    android:gravity="center"
+                    android:insetLeft="@dimen/dimen_0dp"
+                    android:insetTop="@dimen/dimen_0dp"
+                    android:insetRight="@dimen/dimen_0dp"
+                    android:insetBottom="@dimen/dimen_0dp"
+                    app:icon="@drawable/ic_add_black_24dp"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/dimen_0dp"
+                    app:iconTint="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/storeTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/storeTextView" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/storeRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/storeTextView"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/product_store_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
